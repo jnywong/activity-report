@@ -1,0 +1,6 @@
+dotenv
+dateparser
+requests
+prometheus_pandas
+rich
+matplotlib
