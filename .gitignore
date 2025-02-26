@@ -2,3 +2,4 @@
 venv
 *.png
 *.csv
+__pycache__/
