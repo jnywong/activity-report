@@ -193,15 +193,18 @@ def main(args):
     ax2.plot(df_cpu.index, df_cpu["value"], color = 'firebrick', lw=2)
     ax1.set_xlabel('Date', size=12)
     ax2.set_yscale('log')
-    ax1.set_ylabel('Weekly Users', color='cornflowerblue',  size=12)
+    ax1.set_ylabel('Weekly sessions', color='cornflowerblue',  size=12)
     ax2.set_ylabel('Total CPU usage (seconds)', color='firebrick', size=12)
     date_offset = pd.DateOffset(ceil(0.5*bar_width))
     ax1.set_xlim([df_daily.index.min()-date_offset, df_daily.index.max()+date_offset])
     ax2.set_xlim([df_cpu.index.min()-date_offset, df_cpu.index.max()+date_offset])
     plt.tight_layout()
-    fig.savefig("weekly_users_cpu.png")
+    fig.savefig("weekly_sessions_cpu.png")
 
 if __name__ == "__main__":
+    """
+    Example usage: python engagement.py --data_path ./data --cluster hhmi --hub spyglass --date_start 2024-07-18 --date_end 2025-02-18
+    """
     parser = argparse.ArgumentParser(description="Generate activity report")
     parser.add_argument("--data_path", type=str, required=True, help="Path to data directory to store CSV files from Prometheus")
     parser.add_argument("--cluster", type=str, required=True, help="Cluster name")
